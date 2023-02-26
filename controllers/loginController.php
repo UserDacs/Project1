@@ -2,6 +2,8 @@
 /**
  * 
  */
+require 'lib/controller.php';
+require 'models/loginModel.php';
 class LoginController extends controller
 {
 	private $controller;

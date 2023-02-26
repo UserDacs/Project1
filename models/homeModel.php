@@ -1,5 +1,5 @@
 <?php
-class homeModel extends model{
+class homeModel {
     private $conn;
 
     public function __construct(){

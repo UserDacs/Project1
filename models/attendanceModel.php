@@ -1,6 +1,6 @@
 <?php
 
-class attendanceModel extends model{
+class attendanceModel{
     private $conn;
 
     public function __construct(){
@@ -53,7 +53,7 @@ class attendanceModel extends model{
 				$scherow = $squery->fetch_assoc();
 				$logstatus = ($time_in > $scherow['time_in']) ? 0 : 1;
 				//
-				$sql = "INSERT INTO attendance (employee_id, date, time_in, time_out, status) VALUES ('$emp', '$date', '$time_in', '$time_out', '$logstatus')";
+				$sql = "INSERT INTO attendance (employee_id, date, time_in, time_out, num_hr, status) VALUES ('$emp', '$date', '$time_in', '$time_out','0', '$logstatus')";
 				if($this->conn->query($sql)){
 					$_SESSION['success'] = 'Attendance added successfully';
 					$id = $this->conn->insert_id;

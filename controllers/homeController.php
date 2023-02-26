@@ -4,6 +4,8 @@
  * 
  */
 
+require 'lib/controller.php';
+
 
 class homeController extends Controller
 {

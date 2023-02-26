@@ -1,6 +1,6 @@
 <?php
 
-class cashadvanceModel extends model{
+class cashadvanceModel {
     private $conn;
 
     public function __construct(){

@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/homeModel.php';
 class profileController extends Controller{
     private $controller;
 	function __construct()

@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/payrollModel.php';
 class payrollController extends Controller{
     private $controller;
 	function __construct()

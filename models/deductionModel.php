@@ -1,6 +1,5 @@
 <?php
-
-class deductionModel extends model{
+class deductionModel {
     private $conn;
 
     public function __construct(){

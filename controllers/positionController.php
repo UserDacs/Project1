@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/positionModel.php';
 class positionController extends Controller{
     private $controller;
 	function __construct()

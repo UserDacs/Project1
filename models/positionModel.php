@@ -1,6 +1,5 @@
 <?php
-
-class positionModel extends model{
+class positionModel {
     private $conn;
 
     public function __construct(){

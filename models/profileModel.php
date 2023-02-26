@@ -1,8 +1,7 @@
 
 
 <?php
-
-class profileModel extends model{
+class profileModel{
     private $conn;
 
     public function __construct(){

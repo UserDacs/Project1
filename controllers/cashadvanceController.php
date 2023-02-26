@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/cashadvanceModel.php';
 class cashadvanceController extends Controller{
     private $controller;
 	function __construct()

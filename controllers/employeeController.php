@@ -1,5 +1,8 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/employeeModel.php';
+require 'models/positionModel.php';
+require 'models/scheduleModel.php';
 class employeeController extends Controller{
     private $controller;
 	function __construct()
@@ -32,7 +35,7 @@ class employeeController extends Controller{
 		$schedule = $_POST['schedule'];
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
-			move_uploaded_file($_FILES['photo']['tmp_name'], 'images/'.$filename);	
+			move_uploaded_file($_FILES['photo']['tmp_name'],  $_SERVER['DOCUMENT_ROOT'].'/images/'.$filename);	
 		}
 
         $data = array(
@@ -108,7 +111,7 @@ class employeeController extends Controller{
         $empid = $_POST['id'];
 		$filename = $_FILES['photo']['name'];
 		if(!empty($filename)){
-			move_uploaded_file($_FILES['photo']['tmp_name'], 'images/'.$filename);	
+			move_uploaded_file($_FILES['photo']['tmp_name'],  $_SERVER['DOCUMENT_ROOT'].'/images/'.$filename);	
 		}
 
         $data = array(

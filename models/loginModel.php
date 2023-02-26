@@ -2,7 +2,7 @@
 /**
  * 
  */
-class LoginModel extends model
+class LoginModel
 {
 	
 	private $conn;

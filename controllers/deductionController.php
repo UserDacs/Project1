@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/deductionModel.php';
 class deductionController extends Controller{
     private $controller;
 	function __construct()

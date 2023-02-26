@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/overtimeModel.php';
 class overtimeController extends Controller{
     private $controller;
 	function __construct()

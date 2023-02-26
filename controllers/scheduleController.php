@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/scheduleModel.php';
 class scheduleController extends Controller{
     private $controller;
 	function __construct()

@@ -1,6 +1,5 @@
 <?php
-
-class employeeModel extends model{
+class employeeModel {
     private $conn;
 
     public function __construct(){

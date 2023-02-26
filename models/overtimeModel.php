@@ -1,6 +1,5 @@
 <?php
-
-class overtimeModel extends model{
+class overtimeModel {
     private $conn;
 
     public function __construct(){

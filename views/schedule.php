@@ -59,7 +59,7 @@
                   </h4>
                 </div>
                 <div class="col-sm-6">
-                  <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" style="float:right"><i class="fa fa-plus"></i> New</a> 
+                  <!-- <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" style="float:right"><i class="fa fa-plus"></i> New</a>  -->
                 </div>
               </div>
               

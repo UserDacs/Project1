@@ -1,6 +1,5 @@
 <?php
-
-class scheduleModel extends model{
+class scheduleModel {
     private $conn;
 
     public function __construct(){

@@ -1,5 +1,6 @@
 <?php
-
+require 'lib/controller.php';
+require 'models/attendanceModel.php';
 class attendanceController extends Controller{
     private $controller;
 	function __construct()
