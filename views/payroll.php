@@ -59,6 +59,7 @@
                     <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
                   </div>
                   <a href="#" class="btn btn-success btn-sm btn-flat" id="payroll" ><span class="glyphicon glyphicon-print"></span> Payroll</a>
+                  <button type="button" class="btn btn-primary btn-sm btn-flat" id="payslip"><span class="glyphicon glyphicon-print"></span> Payslip</button>
                 </form>
               </div>
             </div>
