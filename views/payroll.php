@@ -51,14 +51,14 @@
           <div class="box">
             <div class="box-header with-border">
               <div class="pull-right">
-                <form method="POST" class="form-inline" id="payForm">
+                <form method="POST" class="form-inline" id="payForm" target="_blank">
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-calendar"></i>
                     </div>
                     <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="<?php echo (isset($_GET['range'])) ? $_GET['range'] : $range_from.' - '.$range_to; ?>">
                   </div>
-                  <button type="button" class="btn btn-success btn-sm btn-flat" id="payroll"><span class="glyphicon glyphicon-print"></span> Payroll</button>
+                  <a href="#" class="btn btn-success btn-sm btn-flat" id="payroll" ><span class="glyphicon glyphicon-print"></span> Payroll</a>
                   <button type="button" class="btn btn-primary btn-sm btn-flat" id="payslip"><span class="glyphicon glyphicon-print"></span> Payslip</button>
                 </form>
               </div>
@@ -127,7 +127,7 @@ $(function(){
 
   $('#payroll').click(function(e){
     e.preventDefault();
-    $('#payForm').attr('action', 'payroll_generate.php');
+    $('#payForm').attr('action', 'payroll/print');
     $('#payForm').submit();
   });
 

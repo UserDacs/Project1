@@ -59,7 +59,7 @@
                   </h4>
                 </div>
                 <div class="col-sm-6">
-                  <!-- <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat" style="float:right"><i class="fa fa-plus"></i> New</a>  -->
+                  <a href="/schedule/employees" target="new" class="btn btn-success btn-sm btn-flat" style="float:right"><span class="glyphicon glyphicon-print"></span> Print</a>
                 </div>
               </div>
               
@@ -71,7 +71,7 @@
                   <th>Employee ID</th>
                   <th>Name</th>
                   <th>Schedule</th>
-                  <th>Tools</th>
+                 
                 </thead>
                 <tbody>
                   <?php
@@ -81,9 +81,7 @@
                           <td>".$row['employee_id']."</td>
                           <td>".$row['firstname'].' '.$row['lastname']."</td>
                           <td>".date('h:i A', strtotime($row['time_in'])).' - '.date('h:i A', strtotime($row['time_out']))."</td>
-                          <td>
-                            <button class='btn btn-success btn-sm edit_sched btn-flat' data-id='".$row['empid']."'><i class='fa fa-edit'></i> Edit</button>
-                          </td>
+                         
                         </tr>
                       ";
                     }
@@ -197,6 +195,18 @@ function getRowSc(id){
     }
   });
 }
+
+
+</script>
+
+<script type="text/javascript">   
+    function imprimir() {
+      var divToPrint=document.getElementById("table_schedule");
+        newWin= window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.document.close();
+        newWin.print();
+    }
 </script>
 </body>
 </html>

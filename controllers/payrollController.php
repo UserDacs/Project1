@@ -1,6 +1,7 @@
 <?php
 require 'lib/controller.php';
 require 'models/payrollModel.php';
+require 'models/deductionModel.php';
 class payrollController extends Controller{
     private $controller;
 	function __construct()
@@ -22,22 +23,39 @@ class payrollController extends Controller{
         return $this->controller->view()->render('payroll.php',$em);
     }
 
-    public function store()
+    public function print()
     {
+        $range = $_POST['date_range'];
+        $ex = explode(' - ', $range);
+        $from = date('Y-m-d', strtotime($ex[0]));
+        $to = date('Y-m-d', strtotime($ex[1]));
+
+
+        $from_title = date('M d, Y', strtotime($ex[0]));
+        $to_title = date('M d, Y', strtotime($ex[1]));
+
         $data = array(
-            'title' => $_POST['title'],
-            'rate' => $_POST['rate']
-         
+            'from' => $from,
+            'to' => $to
         );
     
         $model = new payrollModel();
-		$result = $model->save($data);
+		$result = $model->payroll($data);
 
-        return $this->controller->view()->route('payroll');
+        $modelde = new deductionModel();
+        $em = $modelde->all();
+
+        return $this->controller->view()->render('print_payroll.php',array('result' =>$result,'dec'=>$em , 'from_title'=>$from_title, 'to_title'=>$to_title));
 
     }
 
-    public function edit()
+    public function sample()
+    {
+
+     return $this->controller->view()->render('sample_print.php');
+    }
+
+    public function payslip()
     {
         $id = $_POST['id'];
         $model = new payrollModel();
@@ -45,28 +63,7 @@ class payrollController extends Controller{
         echo json_encode($getId);
     }
 
-    public function update()
-    {
-        $data = array(
-            'id' => $_POST['id'],
-            'title' => $_POST['title'],
-            'rate'=> $_POST['rate']
-        );
-        $model = new payrollModel();
-		$result = $model->update($data);
-
-        return $this->controller->view()->route('payroll');
-    }
-
-    public function destroy()
-    {
-        $id = $_POST['id'];
-      
-        $model = new payrollModel();
-		$result = $model->delete($id);
-
-        return $this->controller->view()->route('payroll');
-    }
+   
 
 }
 

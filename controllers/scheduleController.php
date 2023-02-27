@@ -80,6 +80,19 @@ class scheduleController extends Controller{
         return $this->controller->view()->route('schedule');
     }
 
+
+    public function employees()
+    {
+        if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+            
+            header('location: /login');
+        }
+        $empSched = new scheduleModel();
+        $sched =  $empSched->getAllEmSched();
+
+        return $this->controller->view()->render('print_employee_sched.php',$sched);
+    }
+
 }
 
 
