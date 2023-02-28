@@ -24,7 +24,7 @@ class positionModel {
     public function save($param = array())
     {
         $title = $param['title'];
-		$rate = $param['rate'];
+		    $rate = $param['rate'];
 
 		$sql = "INSERT INTO position (description, rate) VALUES ('$title', '$rate')";
 		if($this->conn->query($sql)){
@@ -38,12 +38,11 @@ class positionModel {
     public function getId($id)
     {
        
-		$sql = "SELECT * FROM position WHERE id = '$id'";
-		$query = $this->conn->query($sql);
-		$row = $query->fetch_assoc();
+        $sql = "SELECT * FROM position WHERE id = '$id'";
+        $query = $this->conn->query($sql);
+        $row = $query->fetch_assoc();
 
-    
-		return ($row);
+        return ($row);
     }
     public function update($param = array())
     {

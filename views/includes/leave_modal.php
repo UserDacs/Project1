@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="rate" class="col-sm-3 control-label">Leave date</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control pull-right col-sm-8" id="reservation" name="date_range" value="">
+                        <input type="text" class="form-control pull-right col-sm-8" id="reservation1" name="date_range" value="">
                     </div>
                 </div>
                 <div class="form-group">
@@ -69,23 +69,51 @@
           	<div class="modal-header">
             	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
               		<span aria-hidden="true">&times;</span></button>
-            	<h4 class="modal-title"><b>Update Position</b></h4>
+            	<h4 class="modal-title"><b>Update Leave</b></h4>
           	</div>
           	<div class="modal-body">
-            	<form class="form-horizontal" method="POST" action="/position/update">
-            		<input type="hidden" id="posid" name="id">
+            	<form class="form-horizontal" method="POST" action="/leave/update">
+            		<input type="hidden" id="leaveid" name="id">
                 <div class="form-group">
-                    <label for="edit_title" class="col-sm-3 control-label">Position Title</label>
+                  	<label for="title" class="col-sm-3 control-label">Employee</label>
 
+                  	<div class="col-sm-9">
+                      <select class="form-control" name="emp_id" id="e_emp_id" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          
+                          foreach($data['all'] as $prow){
+                            echo "
+                              <option value='".$prow['empid']."'>".$prow['lastname'].', '.$prow['firstname']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                  	</div>
+                </div>
+                <div class="form-group">
+                    <label for="rate" class="col-sm-3 control-label">Leave date</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_title" name="title">
+                        <input type="text" class="form-control pull-right col-sm-8" id="reservation2" name="date_range" value="">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_rate" class="col-sm-3 control-label">Rate per Hr</label>
-
+                    <label for="rate" class="col-sm-3 control-label">Description</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="edit_rate" name="rate">
+                        <input type="text" class="form-control " id="e_desctiption" name="desctiption" value="" placeholder="Input Description">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rate" class="col-sm-3 control-label">Leave type</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" name="type" id="e_type" required>
+                            <option selected disabled > - Select type - </option>
+                            <option value="Maternity" > Maternity Leave</option>
+                            <option value="Paternity" > Paternity Leave</option>
+                            <option value="Sick" > Sick Leave</option>
+                            <option value="Unpaid" > Unpaid Leave</option>
+                            <option value="Bereavement" > Bereavement Leave</option>
+                        </select>
                     </div>
                 </div>
           	</div>

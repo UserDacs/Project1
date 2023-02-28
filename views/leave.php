@@ -79,9 +79,9 @@
                             <td>".$st."</td>
                           <td>
                             <div class='btn-group'>
-                                <button type='button' class='btn btn-success' data-id='".$row['lid']."'><i class='fa fa-edit'></i> </button>
-                                <button type='button' class='btn btn-warning' data-id='".$row['lid']."'><i class='fa fa-thumbs-up'></i> </button>
-                                <button type='button' class='btn btn-danger' data-id='".$row['lid']."'><i class='fa  fa-thumbs-down'></i> </button>
+                                <button type='button' class='btn btn-success edit' data-id='".$row['lid']."'><i class='fa fa-edit'></i> </button>
+                                <a href='/leave/approved?id=".$row['lid']."' class='btn btn-warning' data-id='".$row['lid']."'><i class='fa fa-thumbs-up'></i> </a>
+                                <a href='/leave/disapproved?id=".$row['lid']."'  class='btn btn-danger' data-id='".$row['lid']."'><i class='fa  fa-thumbs-down'></i> </a>
                             </div>
                           </td>
                         </tr>
@@ -102,36 +102,39 @@
 </div>
 <?php require PATH_VIEW.'includes/scripts.php'; ?>
 <script>
-
+  
   $('.edit').click(function(e){
     e.preventDefault();
     $('#edit').modal('show');
     var id = $(this).data('id');
-    getRow(id);
+    // console.log(id);
+   
+    $.ajax({
+        type: 'POST',
+        url: '/leave/edit',
+        data: {id:id},
+        dataType: 'json',
+        success: function(response){
+           
+           
+        $('#leaveid').val(response.id);
+          $('#e_desctiption').val(response.description);
+          $('#e_emp_id').val(response.emp_id);
+          $('#e_type').val(response.type);
+          $('#reservation2').val(response.from_date+' - '+  response.to_date);
+        }
+    });
   });
 
-  $('.delete').click(function(e){
-    e.preventDefault();
-    $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
+//   $('.delete').click(function(e){
+//     e.preventDefault();
+//     $('#delete').modal('show');
+//     var id = $(this).data('id');
+//     getRow(id);
+//   });
 
-function getRow(id){
-  $.ajax({
-    type: 'POST',
-    url: '/position/edit',
-    data: {id:id},
-    dataType: 'json',
-    success: function(response){
-      $('#posid').val(response.id);
-      $('#edit_title').val(response.description);
-      $('#edit_rate').val(response.rate);
-      $('#del_posid').val(response.id);
-      $('#del_position').html(response.description);
-    }
-  });
-}
+
+
 </script>
 </body>
 </html>

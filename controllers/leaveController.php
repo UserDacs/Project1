@@ -50,12 +50,40 @@ class leaveController extends Controller{
         echo json_encode($getId);
     }
 
+    public function approved()
+    {
+        $id = $_GET['id'];
+        $model = new leaveModel();
+        $getId = $model->approved($id);
+
+        return $this->controller->view()->route('leave');
+
+    }
+
+    public function disapproved()
+    {
+        $id = $_GET['id'];
+        $model = new leaveModel();
+        $getId = $model->disapproved($id);
+
+        return $this->controller->view()->route('leave');
+    }
+
     public function update()
     {
+        
+        $range = $_POST['date_range'];
+        $ex = explode(' - ', $range);
+        $from = date('Y-m-d', strtotime($ex[0]));
+        $to = date('Y-m-d', strtotime($ex[1]));
+
         $data = array(
             'id' => $_POST['id'],
-            'title' => $_POST['title'],
-            'rate'=> $_POST['rate']
+            'from' => $from ,
+            'to' => $to,
+            'emp_id'=> $_POST['emp_id'],
+            'desctiption'=>$_POST['desctiption'],
+            'type'=>$_POST['type']
         );
         $model = new leaveModel();
 		$result = $model->update($data);

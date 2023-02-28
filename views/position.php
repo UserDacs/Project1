@@ -105,6 +105,7 @@ function getRow(id){
     data: {id:id},
     dataType: 'json',
     success: function(response){
+      console.log(response);
       $('#posid').val(response.id);
       $('#edit_title').val(response.description);
       $('#edit_rate').val(response.rate);
