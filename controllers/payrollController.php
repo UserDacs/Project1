@@ -11,6 +11,10 @@ class payrollController extends Controller{
 
     public function index()
     {
+        if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+			
+			header('location: /login');
+		}
         $range = isset($_GET['range'])?$_GET['range'] : '';
         $model = new payrollModel();
         $data = [
@@ -25,6 +29,7 @@ class payrollController extends Controller{
 
     public function print()
     {
+        
         $range = $_POST['date_range'];
         $ex = explode(' - ', $range);
         $from = date('Y-m-d', strtotime($ex[0]));

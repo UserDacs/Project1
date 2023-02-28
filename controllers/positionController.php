@@ -10,6 +10,10 @@ class positionController extends Controller{
 
     public function index()
     {
+        if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+			
+			header('location: /login');
+		}
         $model = new positionModel();
         $em = $model->all();
     

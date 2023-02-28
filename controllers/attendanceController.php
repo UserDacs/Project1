@@ -10,6 +10,10 @@ class attendanceController extends Controller{
 
     public function index()
     {
+        if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+			
+			header('location: /login');
+		}
         $model = new attendanceModel();
         $em = $model->all();
         return $this->controller->view()->render('attendance.php',$em);

@@ -10,6 +10,10 @@ class deductionController extends Controller{
 
     public function index()
     {
+        if(!isset($_SESSION['admin']) || trim($_SESSION['admin']) == ''){
+			
+			header('location: /login');
+		}
         $model = new deductionModel();
         $em = $model->all();
         
