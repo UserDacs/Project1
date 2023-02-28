@@ -31,9 +31,10 @@
             <li><a href="/overtime"><i class="fa fa-circle-o"></i> Overtime</a></li>
             <li><a href="/cashadvance"><i class="fa fa-circle-o"></i> Cash Advance</a></li>
             <li><a href="/schedule"><i class="fa fa-circle-o"></i> Schedules</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Leave reports</a></li>
+            
           </ul>
         </li>
+        <li><a href="/leave"><i class="fa fa-file"></i> Leave Manage</a></li>
         <li><a href="/deduction"><i class="fa fa-file-text"></i> Deductions</a></li>
         <li><a href="/position"><i class="fa fa-suitcase"></i> Positions</a></li>
         <li class="header">PRINTABLES</li>
