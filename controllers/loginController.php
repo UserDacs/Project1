@@ -24,7 +24,7 @@ class LoginController extends controller
 	public function userLogin()
 	{
 		$username = isset($_POST['username'])? $_POST['username'] : '';
-		$password = isset($_POST['password'])? $_POST['password'] : 'admin';
+		$password = isset($_POST['password'])? $_POST['password'] : '';
 
 		$auth_obj = new LoginModel();
 
